@@ -14,7 +14,7 @@ def depositar(valor):
         transacoes.append((datetime.now(), f"Depósito: R${valor:.2f}"))
         return f"Depósito de R${valor:.2f} realizado com sucesso (☆^-^☆). Saldo atual: R${saldo:.2f} \($-$)/"
     else:
-        return "Erro: O valor do depósito deve ser positivo. (ノಠ益ಠ)ノ彡┻━┻"
+        return "Operação não realizada. O valor do depósito deve ser positivo. (ノಠ益ಠ)ノ彡┻━┻"
 
 def sacar(valor):
     global saldo, saques_realizados, transacoes
@@ -24,16 +24,16 @@ def sacar(valor):
     saques_hoje = [data for data in saques_realizados if data == hoje]
 
     if len(saques_hoje) >= 3:
-        print("Erro: Você já realizou 3 saques hoje. (ㄒoㄒ)")
+        print("Operação não realizada. Você já realizou 3 saques hoje. (ㄒoㄒ)")
     
     elif valor > 500:
-        print("Erro: O valor máximo de saque é R$500,00 por operação. o(╥﹏╥)o")
+        print("Operação não realizada. O valor máximo de saque é R$500,00 por operação. o(╥﹏╥)o")
     
     elif valor > saldo:
-        print("Erro: Saldo insuficiente. (*ﾉωﾉ)")
+        print("Operação não realizada. Saldo insuficiente. (*ﾉωﾉ)")
     
     elif valor <= 0:
-        print("Erro: O valor do saque deve ser positivo. (ノಠ益ಠ)ノ彡┻━┻")
+        print("Operação não realizada. O valor do saque deve ser positivo. (ノಠ益ಠ)ノ彡┻━┻")
     
     # Saque realizado caso as condições anteriores não se encaixem.
     elif valor > 0:
